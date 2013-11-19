@@ -194,7 +194,7 @@ class Premailer(object):
             rules.extend(these_rules)
 
             parent_of_style = style.getparent()
-            if these_leftover:
+            if these_leftover and not self.keep_style_tags:
                 style.text = '\n'.join(['%s {%s}' % (k, make_important(v)) for
                                         (k, v) in these_leftover])
                 if self.method == 'xml':
